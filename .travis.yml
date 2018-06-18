@@ -8,8 +8,8 @@ python:
 env: 
   - TOX_ENV=py36-django-111
   - TOX_ENV=py35-django-111
-  - TOX_ENV=py34-django-111
-  - TOX_ENV=py27-django-111
+  - TOX_ENV=py36-django-2
+  - TOX_ENV=py35-django-2
 
 matrix:
   fast_finish: true
