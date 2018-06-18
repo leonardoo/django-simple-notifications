@@ -19,7 +19,7 @@ def update_notification_user(request: HttpRequest, pk: str) -> JsonResponse:
     :return: json
     """
     notifications = NotificationLogic.get_notifications_for_user(request.user, pk)
-    if not notifications:
+    if not notifications.exists():
         raise Http404
     notification = notifications[0]
     user_notificated, created = UserNotificated.objects.get_or_create(
