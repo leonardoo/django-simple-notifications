@@ -3,6 +3,7 @@ from simple_notifications.settings import settings
 from django.http import HttpRequest
 
 from simple_notifications.business import NotificationLogic
+from simple_notifications.compat import is_user_authenticated
 
 
 def check_user_show_notification(request: HttpRequest):
@@ -13,7 +14,7 @@ def check_user_show_notification(request: HttpRequest):
     """
     #check if it's allow show the notifications to anonymous users
     check = settings["SIMPLE_NOTIFICATIONS"]["SHOW_NOTIFICATIONS_TO_ANONYMOUS_USER"]
-    authenticated = request.user.is_authenticated()
+    authenticated = is_user_authenticated(request.user)
     if not request.user.is_authenticated() and not check:
         return {}
     user = request.user if authenticated else None
