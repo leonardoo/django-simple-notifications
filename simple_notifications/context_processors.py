@@ -15,7 +15,7 @@ def check_user_show_notification(request: HttpRequest):
     #check if it's allow show the notifications to anonymous users
     check = settings["SIMPLE_NOTIFICATIONS"]["SHOW_NOTIFICATIONS_TO_ANONYMOUS_USER"]
     authenticated = is_user_authenticated(request.user)
-    if not request.user.is_authenticated() and not check:
+    if not authenticated and not check:
         return {}
     user = request.user if authenticated else None
     notifications = NotificationLogic.get_notifications_for_user(user)
