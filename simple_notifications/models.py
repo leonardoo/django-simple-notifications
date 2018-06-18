@@ -26,6 +26,6 @@ class UserNotificated(TimeStampedModel):
     """
     The model used for keep track of how many times a notification has been shown to a user
     """
-    notification = models.ForeignKey(Notification)
+    notification = models.ForeignKey(Notification, on_delete=models.CASCADE)
     times_show_to_user = models.PositiveIntegerField(default=0)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
