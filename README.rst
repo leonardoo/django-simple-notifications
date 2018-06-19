@@ -8,14 +8,14 @@ django-simple-notifications
 .. image:: https://codecov.io/gh/leonardoo/django-simple-notifications/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/leonardoo/django-simple-notifications
 
-Your project description goes here
+A app package for simple notifications for django
 
 Quickstart
 ----------
 
 Install django-notifications::
 
-    pip install dj-simple-notifications
+    pip install django-simple-notifications
 
 Add it to your `INSTALLED_APPS`:
 
@@ -51,7 +51,7 @@ Add django-simple-notifications's to the contexts processors:
             'OPTIONS': {
                 'context_processors': [
                     ...
-                    "dj_notifications.context_processors.check_user_show_notification"
+                    "simple_notifications.context_processors.check_user_show_notification"
                 ],
             },
         },

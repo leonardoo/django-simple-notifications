@@ -45,13 +45,13 @@ readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
-    name='djngo simple notifications',
+    name='django simple notifications',
     version=version,
-    description="""Your project description goes here""",
+    description="""A app package for simple notifications for django""",
     long_description=readme + '\n\n' + history,
     author='leonardo orozco',
     author_email='you@example.com',
-    url='https://github.com/leonardoo/dj-notifications',
+    url='https://github.com/leonardoo/django-simple-notifications',
     packages=[
         'simple_notifications',
     ],
@@ -59,7 +59,7 @@ setup(
     install_requires=["django-model-utils>=2.0",],
     license="MIT",
     zip_safe=False,
-    keywords='dj-notifications',
+    keywords='django-simple-notifications',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Framework :: Django :: 1.11',
