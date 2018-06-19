@@ -18,9 +18,10 @@ def check_user_show_notification(request: HttpRequest):
     if not authenticated and not check:
         return {}
     user = request.user if authenticated else None
-    notifications = NotificationLogic.get_notifications_for_user(user)
+    notifications = NotificationLogic.get_notifications_for_user(user, path=request.path)
     if not notifications:
         return {}
+    notifications.filter()
     notification = notifications.filter()[0]
     return {
         "notification": notification

@@ -63,6 +63,14 @@ class TestNotificationsUser(TestCase):
             self.response_200()
             self.assertEqual("notification" in response.context, False)
 
+    def test_user_in_diferent_url_from_notification(self):
+        self.notification.url = "/"
+        self.notification.save()
+        with self.login(self.user):
+            response = self.get('test_url')
+            self.response_200()
+            self.assertEqual("notification" in response.context, False)         
+
 
 class TestNotificationsGroups(TestCase):
     user_factory = UserFactory

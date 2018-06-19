@@ -7,7 +7,7 @@ from simple_notifications.models import Notification
 class NotificationLogic:
 
     @classmethod
-    def get_notifications_for_user(cls, user=None, pk=None):
+    def get_notifications_for_user(cls, user=None, pk=None, path=None):
         time = timezone.now()
         notifications = Notification.objects.filter(
             from_date__lte=time,
@@ -32,4 +32,6 @@ class NotificationLogic:
             return False
         if pk:
             notifications = notifications.filter(pk=pk)
+        if path:
+            notifications = notifications.filter(Q(url=path)|Q(url__isnull=True)|Q(url=""))
         return notifications

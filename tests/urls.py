@@ -12,4 +12,5 @@ def home(request):
 urlpatterns = [
     url(r'^', include('simple_notifications.urls')),
     url(r'', home, name="home"),
+    url(r'test_one', home, name="test_url"),
 ]
